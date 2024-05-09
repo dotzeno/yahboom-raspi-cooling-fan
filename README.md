@@ -8,7 +8,7 @@ I also modified the script to read out GB readings instead of MB readings.
 
 ## How to run the Python code
 
-**1. Enable I2C** (same as dogweather)
+**1. Enable I2C**
 
 sudo [raspi-config](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) and enable I2C.
 
@@ -16,7 +16,7 @@ sudo [raspi-config](https://www.raspberrypi.org/documentation/configuration/rasp
 
 sudo pip3 install adafruit-circuitpython-ssd1306
 
-**3. Run one or more of the Python scripts** (same as dogweather)
+**3. Run one or more of the Python scripts**
 
 For example, if you want the Fan, RGB, and OLED all controlled
 by temperature and the Pi's stats, then in three separate terminal
@@ -34,7 +34,7 @@ python3 rgb_temp.py
 python3 oled.py
 ```
 
-### Starting a script automatically when booting (same as dogweather)
+### Starting a script automatically when booting
 
 This easiest way I've found so far is to add a line
 to root's crontab with `sudo crontab -e`:
