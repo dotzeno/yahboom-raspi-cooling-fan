@@ -48,7 +48,7 @@ python oled.py
 
 EXAMPLE 2:
 
-If I want to use the AIO script (Fan, RGB and OLED functions enabled), then in one terminal window, run:
+If I want to use the AIO script (Fan is temp controlled on/off, RGB is on a cycle and OLED functions enabled), then in one terminal window, run:
 
 ```bash
 python RGB_Cooling_HAT.py
@@ -56,7 +56,7 @@ python RGB_Cooling_HAT.py
 
 EXAMPLE 3:
 
-If I want to use my custom AIO script (Fan and OLED functions enabled, RGB Off), then in one terminal window, run:
+If I want to use my custom AIO script (Fan is temp controlled and OLED functions enabled, RGB Off), then in one terminal window, run:
 
 ```bash
 python RGB_Cooling_HAT-rgb_off.py
