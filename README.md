@@ -2,11 +2,15 @@
 
 Working OLED Python Script for **Raspberry Pi OS 64-bit** 
 
-I couldn't get the official instructions or [dogweather](https://github.com/dogweather)'s to work so I did some research and made the necessary corrections.
+I couldn't get the official or [dogweather](https://github.com/dogweather)'s instructions to work so I did some research and made the necessary corrections.
 I'm not an expert with this language or device so this is mostly some basic adjustments/merging of scripts to get the HAT to work.
-I also modified the script to read out GB readings instead of MB readings.
+I also modified the script to be formatted in a manner that I like:
+The script is designed to detect and show your active network adapter as part of your device's network details.
 
 ## How to run the Python code
+**0. Enable I2C**
+
+download RGB_Cooling_Hat.zip from YahboomTechnology/Raspberry-Pi-RGB-Cooling-HAT/4.Python programming/RGB_Cooling_HAT.zip (or click [here](https://github.com/YahboomTechnology/Raspberry-Pi-RGB-Cooling-HAT/blob/master/4.Python%20programming/RGB_Cooling_HAT.zip))
 
 **1. Enable I2C**
 
