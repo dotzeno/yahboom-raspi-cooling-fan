@@ -11,7 +11,7 @@ I've adjusted the formatting to my liking and created a function in the script s
 
 sudo [raspi-config](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) and enable I2C. 
 
-You may also enable VNC at this time if that is something you're more comfortable with.
+You may also enable VNC at this time if that is something you're more comfortable with (i.e. use VNC to remote into the device and use Chromium to download files onto the device).
 
 **2. Download Scripts to Device**
 
