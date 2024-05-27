@@ -30,7 +30,7 @@ Download 'RGB_Cooling_Hat_x64.zip' from my Releases and extract to the destinati
 
 ```bash
 wget https://github.com/dotzeno/yahboom-raspi-cooling-fan/releases/download/v0.1/RGB_Cooling_HAT_x64.zip
-unzip -o  RGB_Cooling_HAT_x64.zip -d ./RGB_Cooling_HAT_x64
+unzip -o  RGB_Cooling_HAT_x64.zip -d ./
 ```
 
 **4. Run one or more of the Python scripts**
@@ -81,11 +81,7 @@ If you want to do like dogweather (run two scripts on boot for controlling the f
 @reboot /usr/bin/python3 /home/pi/RGB_Cooling_HAT_x64/fan_temp.py
 @reboot /usr/bin/python3 /home/pi/RGB_Cooling_HAT_x64/oled.py
 ```
-You may need to correct the target destination to wherever you extracted RGB_Cooling_Hat_x64.zip and the target script you want to run. For me, that looks like:
-
-```
-@reboot /usr/bin/python3 /home/pi/Downloads/RGB_Cooling_HAT_x64/RGB_Cooling_HAT-rgb_off.py
-```
+You may need to adjust the target destination to wherever you extracted RGB_Cooling_Hat_x64.zip and the target script you want to run.
 
 
 See Also
