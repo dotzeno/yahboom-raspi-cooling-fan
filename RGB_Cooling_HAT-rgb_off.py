@@ -121,7 +121,7 @@ def setOLEDshow():
     # Display image.
     disp.image(image)
     disp.show()
-    time.sleep(0.1)
+    time.sleep(1)
 
 def setRGB(num, r, g, b):
     bus.write_byte_data(hat_addr, 0x00, num&0xff)
@@ -155,4 +155,4 @@ while True:
     else:
         setFanSpeed(0x01)
     
-    time.sleep(.5)
+    time.sleep(1)
