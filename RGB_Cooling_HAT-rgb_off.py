@@ -104,7 +104,7 @@ def setOLEDshow():
     else:
         CPU_TEMP=cmd[:3]+"."+cmd[3:4]
         g_temp = int(cmd[:2])
-    CPU_TEMP=CPU_TEMP+"C"
+    CPU_TEMP="temp:"+CPU_TEMP+"C"
     cmd = "free -m | awk 'NR==2{printf \"RAM:%.2f/%.2fGB %.0f%%\", $3/1024,$2/1024,$3*100/$2 }'"
     MemUsage = subprocess.check_output(cmd, shell=True).decode("utf-8")
     cmd = "df -h | awk '$NF==\"/\"{printf \"Disk:%.1f/%.1fGB %s\", $3,$2,$5}'"
@@ -113,7 +113,7 @@ def setOLEDshow():
 
     # Write five lines of text.
     draw.text((x, top), str(CPU), font=font, fill=255)
-    draw.text((x+56, top), str(CPU_TEMP), font=font, fill=255)
+    draw.text((x+60, top), str(CPU_TEMP), font=font, fill=255)
     draw.text((x, top+8), str(MemUsage),  font=font, fill=255)
     draw.text((x, top+16), str(Disk),  font=font, fill=255)
     draw.text((x, top+24), str(Network),  font=font, fill=255)
