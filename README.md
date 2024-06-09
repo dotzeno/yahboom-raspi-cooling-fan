@@ -29,7 +29,7 @@ sudo pip3 install adafruit-circuitpython-ssd1306 --break-system-packages
 Download 'RGB_Cooling_Hat_x64.zip' from my Releases and extract to the destination directory of your choice.
 
 ```bash
-wget https://github.com/dotzeno/yahboom-raspi-cooling-fan/releases/download/v0.1/RGB_Cooling_HAT_x64.zip
+wget https://github.com/dotzeno/yahboom-raspi-cooling-fan/releases/download/latest/RGB_Cooling_HAT_x64.zip
 unzip -o  RGB_Cooling_HAT_x64.zip -d ./
 ```
 
