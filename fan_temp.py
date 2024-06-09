@@ -10,8 +10,8 @@ temp = 0
 level_temp = 0
 
 while True:
-    cmd = os.popen('vcgencmd measure_temp').readline()
-    CPU_TEMP = cmd.replace("temp=","").replace("'C\n","")
+    cmd = os.popen('cat /sys/class/thermal/thermal_zone*/temp').readline().strip()
+    CPU_TEMP = int(cmd[:2])
     print(CPU_TEMP)
     temp = float(CPU_TEMP)
 
