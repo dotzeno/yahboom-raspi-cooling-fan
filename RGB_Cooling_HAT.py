@@ -100,10 +100,15 @@ def setOLEDshow():
 # Draw a black filled box to clear the image.
     draw.rectangle((0,0,width,height), outline=0, fill=0)
     CPU = getCPULoadRate()
-    cmd = os.popen('vcgencmd measure_temp').readline()
-    CPU_TEMP = cmd.replace("temp=","Temp:").replace("'C\n","C")
+    cmd = os.popen('cat /sys/class/thermal/thermal_zone*/temp').readline().strip()
     global g_temp
-    g_temp = float(cmd.replace("temp=","").replace("'C\n",""))
+    if len(cmd) == 5: 
+        CPU_TEMP=cmd[:2]+"."+cmd[2:3]
+        g_temp = int(cmd[:2])
+    else:
+        CPU_TEMP=cmd[:3]+"."+cmd[3:4]
+        g_temp = int(cmd[:2])
+    CPU_TEMP="temp:"+CPU_TEMP+"C"
     cmd = "free -m | awk 'NR==2{printf \"RAM:%.2f/%.2fGB %.1f%%\", $3/1024,$2/1024,$3*100/$2 }'"
     MemUsage = subprocess.check_output(cmd, shell=True).decode("utf-8")
     cmd = "df -h | awk '$NF==\"/\"{printf \"Disk:%.1f/%.1fGB %s\", $3,$2,$5}'"
