@@ -64,7 +64,7 @@ EXAMPLE 3:
 If I want to use my custom AIO script (Fan is temp controlled and OLED functions enabled, RGB Off), then in one terminal window, run:
 
 ```bash
-python RGB_Cooling_HAT-rgb_off.py
+python custom.py
 ```
 
 ### Load script at boot
