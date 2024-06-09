@@ -71,9 +71,13 @@ while True:
     # Draw a black filled box to clear the image.
     draw.rectangle((0,0,width,height), outline=0, fill=0)
     CPU = getCPULoadRate()
-    cmd = os.popen('vcgencmd measure_temp').readline()
-    CPU_TEMP = cmd.replace("temp=","Temp:").replace("'C\n","C")
-    cmd = "free -m | awk 'NR==2{printf \"RAM:%.2f/%.2fGB %.1f%%\", $3/1024,$2/1024,$3*100/$2 }'"
+    cmd = os.popen('cat /sys/class/thermal/thermal_zone*/temp').readline().strip()
+    if len(cmd) == 5: 
+        CPU_TEMP = cmd[:2]+"."+cmd[2:3]
+    else:
+        CPU_TEMP = cmd[:3]+"."+cmd[3:4]
+    CPU_TEMP = CPU_TEMP+"C"
+    cmd = "free -m | awk 'NR==2{printf \"RAM:%.2f/%.2fGB %.0f%%\", $3/1024,$2/1024,$3*100/$2 }'"
     MemUsage = subprocess.check_output(cmd, shell=True).decode("utf-8")
     cmd = "df -h | awk '$NF==\"/\"{printf \"Disk:%.1f/%.1fGB %s\", $3,$2,$5}'"
     Disk = subprocess.check_output(cmd, shell=True).decode("utf-8")
@@ -84,7 +88,7 @@ while True:
 
     # Write two lines of text.
     draw.text((x, top), str(CPU), font=font, fill=255)
-    draw.text((x+56, top), str(CPU_TEMP), font=font, fill=255)
+    draw.text((x+90, top), str(CPU_TEMP), font=font, fill=255)
     draw.text((x, top+8), str(MemUsage),  font=font, fill=255)
     draw.text((x, top+16), str(Disk),  font=font, fill=255)
     draw.text((x, top+24), str(NIC)+":"+str(IP),  font=font, fill=255)
