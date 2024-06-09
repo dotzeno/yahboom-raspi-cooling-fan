@@ -77,10 +77,9 @@ def getCPULoadRate():
     total = int(total_2-total_1)
     idle = int(idle_2-idle_1)
     usage = int(total-idle)
-    #print("idle:"+str(idle)+"  total:"+str(total))
-    usageRate =int(float(usage * 100/ total))
-    #print("usageRate:%d"%usageRate)
-    return "CPU:"+str(usageRate)+"%"
+    print("idle:"+str(idle)+"  total:"+str(total))
+    usageRate = int(float(usage * 100  / total))
+    return "CPU: "+str(usageRate)+"%"
 
 def getNetwork():
     cmd = "ip addr show | awk '/inet.*brd/{print $NF}' | head -1"
@@ -104,10 +103,10 @@ def setOLEDshow():
     else:
         CPU_TEMP=cmd[:3]+"."+cmd[3:4]
         g_temp = int(cmd[:2])
-    CPU_TEMP="temp:"+CPU_TEMP+"C"
-    cmd = "free -m | awk 'NR==2{printf \"RAM:%.2f/%.2fGB %.0f%%\", $3/1024,$2/1024,$3*100/$2 }'"
+    CPU_TEMP = "temp:"+CPU_TEMP+"C"
+    cmd = "free -m | awk 'NR==2{printf \"RAM: %.1f/ %.1fGB  %.0f%%\", $3/1024,$2/1024,$3*100/$2 }'"
     MemUsage = subprocess.check_output(cmd, shell=True).decode("utf-8")
-    cmd = "df -h | awk '$NF==\"/\"{printf \"Disk:%.1f/%.1fGB %s\", $3,$2,$5}'"
+    cmd = "df -h | awk '$NF==\"/\"{printf \"Disk:%.1f/%.1fGB  %s\", $3,$2,$5}'"
     Disk = subprocess.check_output(cmd, shell=True).decode("utf-8")
     Network = getNetwork()
 
