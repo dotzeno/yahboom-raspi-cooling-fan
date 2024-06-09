@@ -77,7 +77,7 @@ def getCPULoadRate():
     total = int(total_2-total_1)
     idle = int(idle_2-idle_1)
     usage = int(total-idle)
-    print("idle:"+str(idle)+"  total:"+str(total))
+    # print("idle:"+str(idle)+"  total:"+str(total))
     usageRate = int(float(usage * 100  / total))
     return "CPU: "+str(usageRate)+"%"
 
