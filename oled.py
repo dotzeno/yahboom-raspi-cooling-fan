@@ -65,7 +65,7 @@ def getCPULoadRate():
     usage = int(total-idle)
     print("idle:"+str(idle)+"  total:"+str(total))
     usageRate = int(float(usage * 100  / total))
-    return "CPU:"+str(usageRate)+"%"
+    return "CPU: "+str(usageRate)+"%"
 
 while True:
     # Draw a black filled box to clear the image.
@@ -77,9 +77,9 @@ while True:
     else:
         CPU_TEMP = cmd[:3]+"."+cmd[3:4]
     CPU_TEMP = CPU_TEMP+"C"
-    cmd = "free -m | awk 'NR==2{printf \"RAM:%.2f/%.2fGB %.0f%%\", $3/1024,$2/1024,$3*100/$2 }'"
+    cmd = "free -m | awk 'NR==2{printf \"RAM: %.1f/ %.1fGB  %.0f%%\", $3/1024,$2/1024,$3*100/$2 }'"
     MemUsage = subprocess.check_output(cmd, shell=True).decode("utf-8")
-    cmd = "df -h | awk '$NF==\"/\"{printf \"Disk:%.1f/%.1fGB %s\", $3,$2,$5}'"
+    cmd = "df -h | awk '$NF==\"/\"{printf \"Disk:%.1f/%.1fGB  %s\", $3,$2,$5}'"
     Disk = subprocess.check_output(cmd, shell=True).decode("utf-8")
     cmd = "ip addr show | awk '/inet.*brd/{print $NF}' | head -1"
     NIC = subprocess.check_output(cmd, shell = True ).decode("utf-8").strip()
@@ -88,7 +88,7 @@ while True:
 
     # Write two lines of text.
     draw.text((x, top), str(CPU), font=font, fill=255)
-    draw.text((x+90, top), str(CPU_TEMP), font=font, fill=255)
+    draw.text((x+92, top), str(CPU_TEMP), font=font, fill=255)
     draw.text((x, top+8), str(MemUsage),  font=font, fill=255)
     draw.text((x, top+16), str(Disk),  font=font, fill=255)
     draw.text((x, top+24), str(NIC)+":"+str(IP),  font=font, fill=255)
